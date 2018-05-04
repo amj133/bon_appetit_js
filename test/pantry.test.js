@@ -1,5 +1,6 @@
 import { expect } from "chai"
 import Pantry from "../lib/pantry"
+import Recipe from "../lib/recipe"
 
 describe("Pantry", () => {
   describe("attributes", () => {
@@ -30,7 +31,20 @@ describe("Pantry", () => {
       pantry.restock("Cheese", 20)
 
       expect(pantry.stock).to.deep.equal({"Cheese": 30})
-      expect(pantry.stockCheck("Cheese")).to.equal(30)      
+      expect(pantry.stockCheck("Cheese")).to.equal(30)
+    })
+  })
+
+  describe("#addToShoppingList method", () => {
+    const pantry = new Pantry()
+    const recipe = new Recipe("Cheese Pizza")
+    recipe.addIngredient("Cheese", 20)
+    recipe.addIngredient("Flour", 20)
+
+    it("adds recipe to shopping list", () => {
+      pantry.addToShoppingList(recipe)
+
+      expect(pantry.shoppingList).to.deep.equal({ "Cheese": 20, "Flour": 20 })
     })
   })
 })
