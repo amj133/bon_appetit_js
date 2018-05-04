@@ -52,7 +52,6 @@ describe("Pantry", () => {
     newRecipe.addIngredient("Sauce", 10)
     newRecipe.addIngredient("Cheese", 5)
 
-
     it("can add ingredients from multiple recipes", () => {
       pantry.addToShoppingList(newRecipe)
 
