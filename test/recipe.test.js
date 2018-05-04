@@ -23,6 +23,10 @@ describe("Recipe", () => {
         recipe.addIngredient("cheese", 10)
 
         expect(recipe.ingredients).to.eql({ cheese: 10 })
+
+        recipe.addIngredient("Flour", 20)
+
+        expect(recipe.ingredients).to.eql({ cheese: 10, Flour: 20 })
       })
     })
 
@@ -55,4 +59,3 @@ describe("Recipe", () => {
     })
   })
 })
-
